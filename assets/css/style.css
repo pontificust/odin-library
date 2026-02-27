@@ -491,3 +491,16 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+:root {
+    --main-background-color: #120B1C;
+    --card-background-color: #1D122B;
+    --text-color: #FFFFFF;
+    --label-text-color: #E2E8F0;
+    --delete-button-color: #FF4D6D;
+    --add-background-color: #E63946;
+    --add-shadow-color: #E63946;
+    --card-border-color: #00F2FF;
+    --card-shadow-color: #00A3FF;
+    --header-text-color: #FFCC33;
+}
