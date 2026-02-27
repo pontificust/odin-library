@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Press start 2 play';
+    font-family: 'Press start 2P';
     src: url(../fonts/PressStart2P-Regular.woff2) format('woff2'),
     url(../fonts/PressStart2P-Regular.woff) format('woff');
     font-weight: normal;
@@ -504,3 +504,45 @@ html {
     --card-shadow-color: #00A3FF;
     --header-text-color: #FFCC33;
 }
+
+body {
+    background-color: var(--main-background-color);
+    color: var(--text-color);
+    font-family: 'Press start 2P';
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: max-content auto max-content;
+}
+
+/* header styles start*/
+
+.header {
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--card-background-color);
+    border: 2px solid var(--card-border-color);
+}
+
+.header__title {
+    font-size: clamp(2rem, 2vw, 3rem);
+    color: var(--header-text-color);
+    text-shadow: 0 0 10px rgba(255, 204, 51, 0.7);
+}
+
+/* header styles end*/
+
+/* main styles start*/
+
+
+/* main styles end*/
+
+
+/* footer styles start*/
+
+
+/* footer styles end*/
+
+
