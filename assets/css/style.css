@@ -713,6 +713,7 @@ body {
     align-items: center;
     backdrop-filter: blur(8px);
     font-family: 'Share Tech Mono', sans-serif;
+    transition: all 1s allow-discrete;
 }
 
 .main__form {
@@ -724,6 +725,7 @@ body {
     gap: 40px;
     border-radius: 10px;
     position: relative;
+    transition: all 1s allow-discrete;
 }
 
 .main__form-title {
@@ -739,7 +741,7 @@ body {
     gap: 30px;
 }
 
-.main__field { 
+.main__field {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -774,7 +776,7 @@ body {
 
 .main__submit-button {
     text-shadow: 3px 3px 0px var(--add-button-shadow-color);
-    letter-spacing: 2px; 
+    letter-spacing: 2px;
     font-family: 'Press start 2P';
     font-size: clamp(1.5rem, 2vw, 2rem);
 }
@@ -816,9 +818,9 @@ input[type="radio"]:checked {
     box-shadow: 0 0 10px var(--card-border-color), 0 0 20px var(--card-border-color);
 }
 
-input[type="radio"]:checked::before{
+input[type="radio"]:checked::before {
     content: '';
-    position:absolute;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -828,12 +830,24 @@ input[type="radio"]:checked::before{
     border-radius: 50%;
 }
 
-input[type="radio"]:checked + label {
+input[type="radio"]:checked+label {
     text-shadow: var(--glow-amber);
     color: var(--header-text-color);
     font-weight: 600;
 }
 
+
+.show {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.hide {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
 
 
 

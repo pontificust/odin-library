@@ -2,7 +2,7 @@ import { cardClasses } from "./cardClasses.js";
 
 export const render = () => {
     const cardsContainer = document.querySelector('.main__cards');
-    const addButton = document.querySelector('.main__add-button');
+    const popup = document.querySelector('.main__popup-wrapper');
     let books = [];
 
     function Book(title, author, isRead, pages) {
@@ -61,33 +61,42 @@ export const render = () => {
         }
     }
 
-    const closeCard = (e) => {
-        card.classList.add('remove');
-        books = books.filter(val => val.id !== card.dataset.id);
-        setTimeout(() => {
-            cardsContainer.removeChild(card);
-        }, 1000);
+    const closeElem = (elem) => {
+        if(elem.classList.contains('.main__card')){
+            card.classList.add('remove');
+            books = books.filter(val => val.id !== card.dataset.id);
+            setTimeout(() => {
+                cardsContainer.removeChild(card);
+            }, 1000);
+        } else {
+            elem.classList.remove('show');
+            elem.classList.add('hide');
+        }
     }
 
-    const createPopUp = () => {
-
+    const showPopup = () => {
+        popup.classList.remove('hide');
+        popup.classList.add('show');
     }
 
     const addBook = () => {
+        showPopup();
         addBookToLibrary("Crime and Punishment", 'Fyodor Dostoevsky', true, 530, "assets/img/book.png");
         createLibrary();
     }
 
     const handleClickEvent = (e) => {
-        if (e.target.classList.contains('main__close-btn')) {
-            const card = e.target.closest('.main__card');
-            closeCard(card);
+        if (e.target.classList.contains('main__close-btn') ||
+    e.target.classList.contains('main__popup-wrapper')) {
+            const elem = e.target.closest('.main__card') || 
+            e.target.closest('.main__popup-wrapper');
+            closeElem(elem);
         } else if(e.target.classList.contains('main__add-button')) {
             addBook();
         }
     }
 
-    cardsContainer.addEventListener('click', handleClickEvent);
+    document.addEventListener('click', handleClickEvent);
     addBookToLibrary("Crime and Punishment", 'Fyodor Dostoevsky', true, 530, "assets/img/book.png");
     addBookToLibrary("The Hobbit", 'J.R.R. Tolkien', false, 444, "assets/img/book.png");
     createLibrary();
