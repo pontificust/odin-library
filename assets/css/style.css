@@ -561,6 +561,8 @@ body {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 40px;
     list-style: none;
+    position: relative;
+    transition: all 1s allow-discrete;
 }
 
 .main__card {
@@ -573,11 +575,18 @@ body {
     font-size: 2rem;
     font-family: 'Roboto';
     position: relative;
+    transition: all 1s allow-discrete;
 }
 
-.main__card::before {
+.remove {
+    opacity: 0;
+}
+
+.main__close-btn {
     content: '';
     background-image: url(../img/close-thick.svg);
+    background-color: transparent;
+    border: none;
     background-repeat: no-repeat;
     position: absolute;
     top: 10px;
@@ -588,6 +597,10 @@ body {
     transition: all 0.3s;
 }
 
+.main__close-btn:hover {
+    transform: rotate(180deg);
+}
+
 .main__status {
     display: flex;
     gap: 20px;
@@ -595,7 +608,7 @@ body {
 
 .main__status-icon {
     transition: all 0.3s allow-discrete;
-
+    width: 50px;
 }
 
 .close {
