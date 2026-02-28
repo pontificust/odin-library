@@ -15,6 +15,16 @@
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'Share Tech Mono';
+    src: url('../fonts/ShareTechMono-Regular.woff2') format('woff2'),
+        url('../fonts/ShareTechMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
@@ -515,6 +525,8 @@ html {
     --border: 2px solid var(--card-border-color);
     --glow-cyan: 0 0 10px rgba(0, 242, 255, 0.7);
     --glow-amber: 0 0 10px rgba(255, 204, 51, 0.7);
+    --input-background-color: #120B1C;
+
 }
 
 body {
@@ -670,7 +682,8 @@ body {
     border-radius: 50%;
 }
 
-.main__add-button {
+.main__add-button,
+.main__submit-button {
     align-self: center;
     color: var(--add-button-color);
     background-color: transparent;
@@ -682,10 +695,146 @@ body {
     cursor: pointer;
 }
 
-.main__add-button:hover {
+.main__add-button:hover,
+.main__submit-button:hover {
     transform: translateY(5px);
     text-shadow: none;
 }
+
+.main__popup-wrapper {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px);
+    font-family: 'Share Tech Mono', sans-serif;
+}
+
+.main__form {
+    background-color: var(--card-background-color);
+    border: var(--border);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.main__form-title {
+    align-self: center;
+    font-size: 2rem;
+    font-family: 'Press start 2P', sans-serif;
+    text-shadow: var(--glow-cyan);
+}
+
+.main__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.main__field { 
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex-start;
+}
+
+.main__field-label {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    align-self: flex-start;
+}
+
+.main__field-input {
+    background-color: var(--input-background-color);
+    border: var(--border);
+    padding: 8px 16px;
+    width: 100%;
+    color: white;
+    font-size: 1.6rem;
+    border-radius: 10px;
+}
+
+.main__field-legend {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.main__submit {
+    display: flex;
+    justify-content: center;
+}
+
+.main__submit-button {
+    text-shadow: 3px 3px 0px var(--add-button-shadow-color);
+    letter-spacing: 2px; 
+    font-family: 'Press start 2P';
+    font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.main__submit-button:hover {
+    transform: translateY(3px);
+}
+
+.main__radios {
+    list-style: none;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.main__radio-wrapper {
+    font-size: 1.4rem;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+input[type="radio"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: var(--border);
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+}
+
+input[type="radio"]:checked {
+    background-color: var(--card-border-color);
+    box-shadow: 0 0 10px var(--card-border-color), 0 0 20px var(--card-border-color);
+}
+
+input[type="radio"]:checked::before{
+    content: '';
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-color);
+    border-radius: 50%;
+}
+
+input[type="radio"]:checked + label {
+    text-shadow: var(--glow-amber);
+    color: var(--header-text-color);
+    font-weight: 600;
+}
+
+
 
 
 /* main styles end*/
