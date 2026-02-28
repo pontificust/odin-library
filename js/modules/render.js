@@ -9,17 +9,17 @@ export const render = () => {
                     'main__title': {
                         hasChildren: false, 
                         type: 'p', 
-                        content: 'Title:',
+                        content: 'Title',
                     },
                      'main__author': {
                         hasChildren: false,
                         type: 'p',
-                        content: 'Author:'
+                        content: 'Author'
                         },
                     'main__pages': {
                         hasChildren: false,
                         type: 'p',
-                        content: 'Pages:'
+                        content: 'Pages'
                         },
                      'main__status': {
                             hasChildren: true,
@@ -27,7 +27,7 @@ export const render = () => {
                             content: {
                                 'main__status-text': {
                                     type: 'p',
-                                    content: 'Read status:',
+                                    content: 'Status',
                                 },
                                 'main__status-icon': {
                                     type: 'img',
@@ -56,7 +56,7 @@ export const render = () => {
                 }
         }
     }
-    const books = [];
+    let books = [];
 
     function Book(title, author, isRead, pages) {
 
@@ -84,7 +84,6 @@ export const render = () => {
     const createBookCard = (book, elemsObj) => {
         const parentElemClass = Object.keys(elemsObj)[0];
         const childrenObj = elemsObj[parentElemClass].content;
-        console.log(childrenObj, parentElemClass)
         const parentElem = document.createElement(elemsObj[parentElemClass].type);
         parentElem.classList.add(parentElemClass);
         const childrenElems = Object.entries(childrenObj);
@@ -93,17 +92,23 @@ export const render = () => {
                 const elemType = childrenElems[i][1].type;
                 const elem = document.createElement(elemType);
                 const className = childrenElems[i][0];
+                const content = childrenElems[i][1].content;
                 elem.classList.add(className);
+                elem.textContent = content ? content + ': ' + book[content.toLowerCase()] : '';
+                if(elemType === 'img') {
+                    elem.setAttribute('src', book.imgURL);
+                }
                 parentElem.appendChild(elem);
             } else {
-                console.log(Object.fromEntries([childrenElems[i]]))
                 parentElem.appendChild(createBookCard(book, Object.fromEntries([childrenElems[i]])))
             }
         }
+        parentElem.dataset.id = book.id;
         return parentElem;
     }
 
     const createLibrary = () => {
+        cardsContainer.textContent = '';
         for(let i = 0; i < books.length; i += 1) {
             cardsContainer.appendChild(createBookCard(books[i], cardClasses));
         }
@@ -113,7 +118,7 @@ export const render = () => {
         if(e.target.classList.contains('main__close-btn')) {
             const card = e.target.closest('.main__card');
             card.classList.add('remove');
-            books.splice(card.id, 1);
+            books = books.filter(val => val.id !== card.dataset.id);
             setTimeout(() => {
                 cardsContainer.removeChild(card);
             }, 1000);
