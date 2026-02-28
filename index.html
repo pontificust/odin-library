@@ -15,7 +15,7 @@
     </header>
     <main class="main">
         <ul class="main__cards">
-            <li id="1" class="main__card remove">
+            <li id="1" class="main__card">
                 <p class="main__title">Title: Crime and Punishment</p>
                 <p class="main__author">Author: Fyodor Dostoevsky</p>
                 <p class="main__pages">Pages: 310</p>
@@ -131,6 +131,40 @@
         <button class="main__add-button">
             ADD BOOK
         </button>
+        <div class="main__popup-wrapper">
+            <form action="#" class="main__form">
+                <section class="main__fields">
+                    <p class="main__field">
+                        <lable class="main__field-label" for="title">Title</lable>
+                        <input type="text" class="main__field-input" id="title" name="book_title">
+                    </p>
+                    <p class="main__field">
+                        <lable class="main__field-label" for="author">Author</lable>
+                        <input type="text" class="main__field-input" id="author" name="book_author">
+                    </p>
+                    <p class="main__field">
+                        <lable class="main__field-label" for="pages">Pages</lable>
+                        <input type="text" class="main__field-input" id="pages" name="book_pages">
+                    </p>
+                    <fieldset class="main__field">
+                        <legend>Have you already read the book?</legend>
+                        <ul class="main__radios">
+                            <li class="main__radio-wrapper">
+                                <label for="finished" class="main__radio-label">finished</label>
+                                <input value="finished" type="radio" class="main__radio-input" id="finished" name="isRead">
+                            </li>
+                            <li class="main__radio-wrapper">
+                                <label for="in_progress" class="main__radio-label">in progress</label>
+                                <input value="in_progress" type="radio" class="main__radio-input" id="in_progress" name="isRead">
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <section class="main__submit">
+                        <button class="main__submit-btn">Submit</button>
+                    </section>
+                </section>
+            </form>
+        </div>
     </main>
     <footer class="footer">
         <a target="_blank" rel="noreferrer" href="https://github.com/pontificust" class="footer__link">
