@@ -1,6 +1,11 @@
-import { render } from './modules/index.js';
+import { render, initializeLibrary, initialBooksData, Book, eventHandlers } from './modules/index.js';
 
 window.addEventListener('DOMContentLoaded', () => {
-    console.log(22)
-    render();
+    let books = initializeLibrary(initialBooksData, Book);
+    render(books, Book);
+    eventHandlers(books, Book);
+    console.log(books)
+    document.addEventListener('add book', () => {
+        render(books, Book)
+    });
 });

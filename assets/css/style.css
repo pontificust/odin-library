@@ -570,7 +570,7 @@ body {
 
 .main__cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     gap: 40px;
     list-style: none;
     position: relative;
@@ -594,7 +594,8 @@ body {
     opacity: 0;
 }
 
-.main__close-btn {
+.main__close-btn,
+.main__form-close {
     content: '';
     background-image: url(../img/close-thick.svg);
     background-color: transparent;
@@ -609,7 +610,8 @@ body {
     transition: all 0.3s;
 }
 
-.main__close-btn:hover {
+.main__close-btn:hover,
+.main__form-close:hover {
     transform: rotate(180deg);
 }
 
