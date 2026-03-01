@@ -21,6 +21,9 @@ export const render = (books) => {
                     elem.setAttribute('src', book.imgURL);
                 } else if (elemType === 'input') {
                     elem.setAttribute('type', 'checkbox');
+                    if(book.isRead){
+                        elem.checked = true;
+                    }
                 }
                 parentElem.appendChild(elem);
             } else {
