@@ -30,6 +30,7 @@ export const render = (books, Book) => {
         }
         if (parentElem.classList.contains('main__card')) {
             parentElem.dataset.id = book.id;
+            parentElem.style.viewTransitionName = `card-${book.id}`;
         }
         return parentElem;
     }

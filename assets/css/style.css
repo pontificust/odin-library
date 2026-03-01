@@ -715,7 +715,7 @@ body {
     align-items: center;
     backdrop-filter: blur(8px);
     font-family: 'Share Tech Mono', sans-serif;
-    transition: all 1s allow-discrete;
+    transition: all .5s allow-discrete;
 }
 
 .main__form {

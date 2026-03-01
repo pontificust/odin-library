@@ -29,12 +29,23 @@ export const eventHandlers = (books, Book) => {
 
     }
 
-    const closeCard = (e) => {
-        const card = e.target.closest('.main__card');
-        card.classList.add('remove');
+    const executeDelete = (card) => {
         const deleteIdx = books.findIndex(val => val.id === card.dataset.id);
         books.splice(deleteIdx, 1);
         cardsContainer.removeChild(card);
+    }
+
+    const closeCard = (e) => {
+        const card = e.target.closest('.main__card');
+        
+        if(!document.startViewTransition) {
+            executeDelete(card);
+            return;
+        }
+
+        document.startViewTransition(() => {
+            executeDelete(card);
+        })
     }
 
     const showPopup = () => {
@@ -69,7 +80,9 @@ export const eventHandlers = (books, Book) => {
         closePopup();
         addBookToLibrary(formProps);
         let addEvent = new CustomEvent('add book');
-        document.dispatchEvent(addEvent);
+        setTimeout(() => {
+            document.dispatchEvent(addEvent);
+        }, 500);
     }
 
     document.addEventListener('click', handleClickEvent);

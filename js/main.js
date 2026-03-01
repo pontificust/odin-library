@@ -6,6 +6,13 @@ window.addEventListener('DOMContentLoaded', () => {
     eventHandlers(books, Book);
     console.log(books)
     document.addEventListener('add book', () => {
-        render(books, Book)
+        if (!document.startViewTransition) {
+            render(books, Book);
+            return;
+        }
+
+        document.startViewTransition(() => {
+            render(books, Book);
+        })
     });
 });
