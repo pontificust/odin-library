@@ -19,4 +19,4 @@ Book.prototype.updateStatus = function () {
     this.imgURL = this.isRead ? this.imgURLs.read : this.imgURLs.notRead;
 }
 
-Book.prototype.imgURLs = { read: "assets/img/book.png", notRead: "assets/img/book-closed.png" };
+Book.prototype.imgURLs = { notRead: "assets/img/book.png", read: "assets/img/book-closed.png" };

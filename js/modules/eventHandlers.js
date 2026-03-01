@@ -37,8 +37,8 @@ export const eventHandlers = (books, Book) => {
 
     const closeCard = (e) => {
         const card = e.target.closest('.main__card');
-        
-        if(!document.startViewTransition) {
+
+        if (!document.startViewTransition) {
             executeDelete(card);
             return;
         }

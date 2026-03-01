@@ -1,7 +1,6 @@
 import { cardClasses } from "./cardClasses.js";
 
-export const render = (books, Book) => {
-    console.log(books)
+export const render = (books) => {
     const cardsContainer = document.querySelector('.main__cards');
 
     const createBookCard = (book, elemsObj) => {

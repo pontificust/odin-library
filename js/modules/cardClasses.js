@@ -53,5 +53,3 @@ export const cardClasses = {
         }
     }
 }
-
-export let books = [];
