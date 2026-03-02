@@ -14,12 +14,20 @@ export const eventHandlers = (books, Book) => {
     }
 
     const addBookToLibrary = ({ title, author, pages, isRead }) => {
+        if(typeof isRead === 'string') {
+            isRead = isRead === 'true' ? true : false;
+        }
         const newBook = new Book(title, author, pages, isRead);
 
         books.push(newBook);
     }
 
     const closePopup = () => {
+        const inputRadio = document.querySelector('input[type="radio"]:checked');
+
+        if(inputRadio){
+            inputRadio.checked = false;
+        }
         inputTitle.value = '';
         inputAuthor.value = '';
         inputPages.value = '';
@@ -79,6 +87,7 @@ export const eventHandlers = (books, Book) => {
         const formProps = Object.fromEntries(data);
         closePopup();
         addBookToLibrary(formProps);
+        console.log(formProps);
         let addEvent = new CustomEvent('add book');
         setTimeout(() => {
             document.dispatchEvent(addEvent);
