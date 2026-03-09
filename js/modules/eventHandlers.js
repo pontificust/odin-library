@@ -13,11 +13,13 @@ export const eventHandlers = (books, Book) => {
         'main__checkbox': (e) => changeStatus(e),
     }
 
-    const addBookToLibrary = ({ title, author, pages, isRead }) => {
+    const addBookToLibrary = ({ ...FormData }) => {
+        console.log(FormData)
+        const isRead = FormData.isRead;
         if(typeof isRead === 'string') {
-            isRead = isRead === 'true' ? true : false;
+            FormData.isRead = isRead === 'true' ? true : false;
         }
-        const newBook = new Book(title, author, pages, isRead);
+        const newBook = new Book(FormData);
 
         books.push(newBook);
     }
