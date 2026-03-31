@@ -1,75 +1,126 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="icon" type="image/png" href="assets/favicon/favicon-96x96.png" sizes="96x96" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="assets/favicon/favicon-96x96.png"
+      sizes="96x96"
+    />
     <link rel="icon" type="image/svg+xml" href="assets/favicon/favicon.svg" />
     <link rel="shortcut icon" href="assets/favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/favicon/apple-touch-icon.png"
+    />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
     <title>Library</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <header class="header">
-        <h1 class="header__title">Virtual Library</h1>
-        <img src="assets/img/book.png" width="100" alt="" class="header__logo">
+      <h1 class="header__title">Virtual Library</h1>
+      <img src="assets/img/book.png" width="100" alt="" class="header__logo" />
     </header>
     <main class="main">
-        <ul class="main__cards">
-
-        </ul>
-        <button class="main__add-button">
-            ADD BOOK
-        </button>
-        <div class="main__popup-wrapper hide">
-            <form action="#" class="main__form">
-                <h2 class="main__form-title">New Book</h2>
-                <section class="main__fields">
-                    <p class="main__field">
-                        <lable class="main__field-label" for="title">SUBJECT LABEL</lable>
-                        <input type="text" maxlength="26" class="main__field-input" id="title" name="title" required>
-                    </p>
-                    <p class="main__field">
-                        <lable class="main__field-label" for="author" required>CREATOR ID</lable>
-                        <input type="text" maxlength="26" class="main__field-input" id="author" name="author" required>
-                    </p>
-                    <p class="main__field">
-                        <lable class="main__field-label" for="pages">DATA VOLUME</lable>
-                        <input type="number" min="1" class="main__field-input" id="pages" name="pages">
-                    </p>
-                    <fieldset class="main__field">
-                        <legend class="main__field-legend">Have you already read the book?</legend>
-                        <ul class="main__radios">
-                            <li class="main__radio-wrapper">
-                                <input value=true type="radio" class="main__radio-input" id="finished"
-                                    name="isRead">
-                                <label for="finished" class="main__radio-label">COMPLETE</label>
-                            </li>
-                            <li class="main__radio-wrapper">
-                                <input value=false type="radio" class="main__radio-input" id="in_progress"
-                                    name="isRead">
-                                <label for="in_progress" class="main__radio-label">ACTIVE</label>
-                            </li>
-                        </ul>
-                    </fieldset>
-                    <section class="main__submit">
-                        <button class="main__submit-button">UPLOAD</button>
-                    </section>
-                </section>
-                <button class="main__form-close"></button>
-            </form>
-        </div>
+      <ul class="main__cards"></ul>
+      <button class="main__add-button">ADD BOOK</button>
+      <div class="main__popup-wrapper hide">
+        <form action="#" class="main__form">
+          <h2 class="main__form-title">New Book</h2>
+          <section class="main__fields">
+            <p class="main__field">
+              <lable class="main__field-label" for="title">SUBJECT LABEL</lable>
+              <input
+                type="text"
+                maxlength="26"
+                class="main__field-input"
+                id="title"
+                name="title"
+                required
+              />
+            </p>
+            <p class="main__field">
+              <lable class="main__field-label" for="author" required
+                >CREATOR ID</lable
+              >
+              <input
+                type="text"
+                maxlength="26"
+                class="main__field-input"
+                id="author"
+                name="author"
+                required
+              />
+            </p>
+            <p class="main__field">
+              <lable class="main__field-label" for="pages">DATA VOLUME</lable>
+              <input
+                type="number"
+                min="1"
+                class="main__field-input"
+                id="pages"
+                name="pages"
+              />
+            </p>
+            <fieldset class="main__field">
+              <legend class="main__field-legend">
+                Have you already read the book?
+              </legend>
+              <ul class="main__radios">
+                <li class="main__radio-wrapper">
+                  <input
+                    value="true"
+                    type="radio"
+                    class="main__radio-input"
+                    id="finished"
+                    name="isRead"
+                  />
+                  <label for="finished" class="main__radio-label"
+                    >COMPLETE</label
+                  >
+                </li>
+                <li class="main__radio-wrapper">
+                  <input
+                    value="false"
+                    type="radio"
+                    class="main__radio-input"
+                    id="in_progress"
+                    name="isRead"
+                  />
+                  <label for="in_progress" class="main__radio-label"
+                    >ACTIVE</label
+                  >
+                </li>
+              </ul>
+            </fieldset>
+            <section class="main__submit">
+              <button class="main__submit-button">UPLOAD</button>
+            </section>
+          </section>
+          <button class="main__form-close"></button>
+        </form>
+      </div>
     </main>
     <footer class="footer">
-        <a target="_blank" rel="noreferrer" href="https://github.com/pontificust" class="footer__link">
-            <img src="assets/img/github.svg" width="80" alt="" class="footer__link-img">
-            <span class="footer__link-text">Aleksey Likhtinov</span>
-        </a>
+      <a
+        target="_blank"
+        rel="noreferrer"
+        href="https://github.com/pontificust"
+        class="footer__link"
+      >
+        <img
+          src="assets/img/github.svg"
+          width="80"
+          alt=""
+          class="footer__link-img"
+        />
+        <span class="footer__link-text">Aleksey Likhtinov</span>
+      </a>
     </footer>
-</body>
-
+  </body>
 </html>
