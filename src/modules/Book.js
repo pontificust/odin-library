@@ -1,6 +1,9 @@
+import bookClosed from "../assets/img/book-closed.png";
+import book from "../assets/img/book.png";
+
 export class Book {
-    #imgURLs = { notRead: "assets/img/book.png", 
-        read: "assets/img/book-closed.png" };
+    #imgURLs = { notRead: book, 
+        read: bookClosed };
 
     constructor({title, author, pages, isRead}) {
         this.title = `${title}`;

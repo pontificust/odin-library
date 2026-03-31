@@ -1,4 +1,5 @@
-import { render, initializeLibrary, initialBooksData, Book, eventHandlers } from './modules/index.js';
+import { render, initializeLibrary, initialBooksData, Book, eventHandlers } from './modules/modules.js';
+import './assets/css/style.css';
 
 window.addEventListener('DOMContentLoaded', () => {
     let books = initializeLibrary(initialBooksData, Book);
