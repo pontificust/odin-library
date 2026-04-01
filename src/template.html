@@ -3,7 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="assets/css/style.css" />
     <link
       rel="icon"
       type="image/png"
@@ -34,7 +33,7 @@
           <h2 class="main__form-title">New Book</h2>
           <section class="main__fields">
             <p class="main__field">
-              <lable class="main__field-label" for="title">SUBJECT LABEL</lable>
+              <lable class="main__field-label" for="title">SUBJECT LABEL *</lable>
               <input
                 type="text"
                 maxlength="26"
@@ -46,7 +45,7 @@
             </p>
             <p class="main__field">
               <lable class="main__field-label" for="author" required
-                >CREATOR ID</lable
+                >CREATOR ID *</lable
               >
               <input
                 type="text"
@@ -102,25 +101,15 @@
               <button class="main__submit-button">UPLOAD</button>
             </section>
           </section>
-          <button class="main__form-close"></button>
+          <button type="button" class="main__form-close"></button>
         </form>
       </div>
     </main>
     <footer class="footer">
-      <a
-        target="_blank"
-        rel="noreferrer"
-        href="https://github.com/pontificust"
-        class="footer__link"
-      >
-        <img
-          src="assets/img/github.svg"
-          width="80"
-          alt=""
-          class="footer__link-img"
-        />
-        <span class="footer__link-text">Aleksey Likhtinov</span>
-      </a>
+        <a target="_blank" rel="noreferrer" href="https://github.com/pontificust" class="footer__link">
+            <img src="assets/img/github.svg" width="80" alt="" class="footer__link-img">
+            <span class="footer__link-text">Aleksey Likhtinov</span>
+        </a>
     </footer>
   </body>
 </html>

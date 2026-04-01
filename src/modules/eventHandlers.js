@@ -1,8 +1,5 @@
 export const eventHandlers = (books, Book) => {
   const popup = document.querySelector(".main__popup-wrapper");
-  const inputTitle = document.querySelector("#title");
-  const inputAuthor = document.querySelector("#author");
-  const inputPages = document.querySelector("#pages");
   const cardsContainer = document.querySelector(".main__cards");
 
   const clickEventsHandlers = {
@@ -14,7 +11,6 @@ export const eventHandlers = (books, Book) => {
   };
 
   const addBookToLibrary = ({ ...FormData }) => {
-    console.log(FormData);
     const isRead = FormData.isRead;
     if (typeof isRead === "string") {
       FormData.isRead = isRead === "true" ? true : false;
@@ -25,15 +21,6 @@ export const eventHandlers = (books, Book) => {
   };
 
   const closePopup = () => {
-    const inputRadio = document.querySelector('input[type="radio"]:checked');
-
-    if (inputRadio) {
-      inputRadio.checked = false;
-    }
-    inputTitle.value = "";
-    inputAuthor.value = "";
-    inputPages.value = "";
-
     popup.classList.remove("show");
     popup.classList.add("hide");
   };
@@ -86,20 +73,57 @@ export const eventHandlers = (books, Book) => {
     }
   };
 
+  const inputHandler = (() => {
+
+    const clearValidityMsg = (input) => {
+      input.setCustomValidity("");
+    };
+
+    function setValidityMsg(input) {
+      const id = input.id;
+      const msg =
+        id === "pages"
+          ? `The book must contain at least 1 page.`
+          : `The ${id} name must be filled.`;
+      input.setCustomValidity(msg);
+    }
+
+    function handleInputEvent(e) {
+      const input = e.target;
+      clearValidityMsg(input);
+
+      if (!input.validity.valid) {
+        setValidityMsg(input);
+      }
+    }
+
+    return { handleInputEvent, setValidityMsg };
+  })();
+
   const addBook = (e) => {
     e.preventDefault();
+    const form = e.target;
 
-    const data = new FormData(e.target);
+    const data = new FormData(form);
     const formProps = Object.fromEntries(data);
     closePopup();
     addBookToLibrary(formProps);
-    console.log(formProps);
     let addEvent = new CustomEvent("add book");
     setTimeout(() => {
       document.dispatchEvent(addEvent);
     }, 500);
+    form.reset();
   };
 
   document.addEventListener("click", handleClickEvent);
   document.addEventListener("submit", addBook);
+  document.addEventListener("input", inputHandler.handleInputEvent);
+  document.addEventListener(
+    "invalid",
+    (e) => {
+      const input = e.target;
+      inputHandler.setValidityMsg(input);
+    },
+    true,
+  );
 };

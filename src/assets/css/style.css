@@ -768,6 +768,14 @@ body {
   border-radius: 10px;
 }
 
+.main__field-input:user-invalid {
+  border-color: var(--add-button-color);
+}
+
+.main__field-input:user-invalid:focus {
+  outline: none;
+}
+
 .main__field-legend {
   font-size: 1.6rem;
   margin-bottom: 20px;
